@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class PreyControls : MonoBehaviour
+public class PreyMover : MonoBehaviour
 {
     [SerializeField] private float _speed;
-    [SerializeField] private GameObject _walkPointsParent;
+    [SerializeField] private Transform _walkPointsParent;
     [SerializeField] private int _startingPointIndex;
 
     private int _targetPointIndex;

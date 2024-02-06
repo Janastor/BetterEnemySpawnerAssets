@@ -3,16 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(EnemyControls))]
+[RequireComponent(typeof(EnemyMover))]
 
 public class Enemy : MonoBehaviour
 {
     private Prey _prey;
-    private EnemyControls _enemyControls;
+    private EnemyMover _enemyMover;
 
     private void Awake()
     {
-        _enemyControls = GetComponent<EnemyControls>();
+        _enemyMover = GetComponent<EnemyMover>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,6 +29,6 @@ public class Enemy : MonoBehaviour
     public void Init(Quaternion rotation, Prey target)
     {
         transform.rotation = rotation;
-        _enemyControls.SetTarget(target);
+        _enemyMover.SetTarget(target);
     }
 }

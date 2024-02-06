@@ -544,7 +544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 2
-  _walkPointsParent: {fileID: 1463102430}
+  _walkPointsParent: {fileID: 1463102431}
   _startingPointIndex: 2
 --- !u!114 &970147022
 MonoBehaviour:
@@ -772,7 +772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 2
-  _walkPointsParent: {fileID: 1463102430}
+  _walkPointsParent: {fileID: 1463102431}
   _startingPointIndex: 0
 --- !u!58 &1005654619
 CircleCollider2D:

@@ -8,21 +8,30 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Prey _target;
 
     private EnemySpawnPoint[] _spawnPoints;
-    private float _spawnTimer;
+    private bool _isWorking = true;
+    private Coroutine _spawnLoopCoroutine;
     
     private void Start()
     {
         _spawnPoints = GetComponentsInChildren<EnemySpawnPoint>();
+        _spawnLoopCoroutine = StartCoroutine(SpawnEnemyLoop());
     }
     
-    private void Update()
+    private IEnumerator SpawnEnemyLoop()
     {
-        _spawnTimer += Time.deltaTime;
-
-        if (_spawnTimer >= _spawnDelay)
+        float spawnTimer = 0;
+        
+        while (_isWorking)
         {
-            SpawnEnemyAtPoint(Random.Range(0, _spawnPoints.Length));
-            _spawnTimer = 0;
+            spawnTimer += Time.deltaTime;
+
+            if (spawnTimer >= _spawnDelay)
+            {
+                SpawnEnemyAtPoint(Random.Range(0, _spawnPoints.Length));
+                spawnTimer = 0;
+            }
+
+            yield return null;
         }
     }
 
